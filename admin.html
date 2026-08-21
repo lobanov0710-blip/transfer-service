@@ -1,0 +1,34 @@
+<h1>CRM Заказы</h1>
+<div id="orders"></div>
+
+<script>
+async function loadOrders() {
+  const res = await fetch("https://api.telegram.org/botYOUR_TOKEN/sendMessage");
+  const orders = await res.json();
+
+  document.getElementById("orders").innerHTML = orders.map(o => `
+    <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+      <b>#${o.id}</b><br>
+      ${o.name} | ${o.phone}<br>
+      ${o.route}<br>
+      💰 ${o.price} ₽<br>
+      📊 ${o.status}
+      
+      <button onclick="update(${o.id}, 'in_progress')">В пути</button>
+      <button onclick="update(${o.id}, 'done')">Готово</button>
+    </div>
+  `).join('');
+}
+
+async function update(id, status) {
+  await fetch("https://api.telegram.org/botYOUR_TOKEN/sendMessage", {
+    method: "PUT",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({ id, status })
+  });
+
+  loadOrders();
+}
+
+loadOrders();
+</script>

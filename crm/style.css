@@ -1,0 +1,97 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f5f6fa;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.top-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+select {
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.order {
+  background: white;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.order.new { border-left: 5px solid #2ecc71; }
+.order.taken { border-left: 5px solid #f39c12; }
+.order.done { border-left: 5px solid #7f8c8d; opacity: 0.7; }
+
+.order:hover {
+  transform: scale(1.01);
+}
+
+button {
+  margin: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+  /* FIX Safari compatibility */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.9);
+
+  transition: all 0.25s ease;
+
+  z-index: 9999;
+}
+
+/* ACTIVE STATE */
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* hover эффект */
+.to-top:hover {
+  transform: scale(1.08);
+  background: rgba(0,0,0,1);
+}
+
+/* click effect */
+.to-top:active {
+  transform: scale(0.95);
+}

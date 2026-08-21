@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CRM PRO 3.0</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>📊 CRM PRO 3.0</h2>
+
+<div class="top-bar">
+
+  <label>
+    Статус:
+    <select id="statusFilter">
+      <option value="all">Все</option>
+      <option value="new">Новые</option>
+      <option value="taken">Взятые</option>
+      <option value="done">Завершённые</option>
+    </select>
+  </label>
+
+  <label>
+    Тариф:
+    <select id="tariffFilter">
+      <option value="all">Все</option>
+      <option value="comfort">Comfort</option>
+      <option value="business">Business</option>
+      <option value="minivan">Minivan</option>
+    </select>
+  </label>
+
+</div>
+
+<div id="orders">loading...</div>
+
+<audio id="notifySound" src="https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3"></audio>
+
+<script src="crm.js"></script>
+
+</body>
+</html>
